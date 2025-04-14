@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Chachi 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle, #ffe3ec, #ffb5d2, #fc8bc2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      color: #6a0572;
+      text-shadow: 0 0 20px #ff66c4;
+      animation: fadeZoom 3s ease forwards;
+    }
+    @keyframes fadeZoom {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .chachi-img {
+      width: 240px;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      animation: popIn 2s ease forwards;
+    }
+    @keyframes popIn {
+      0% {transform:translateY(-50px) scale(0.8); opacity:0;}
+      100% {transform:translateY(0) scale(1); opacity:1;}
+    }
+    .cut-cake-btn {
+      background: linear-gradient(45deg, #ff66c4, #ff4081);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.3em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    .cut-cake-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff66c4;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      animation: modalPop 1s ease forwards;
+    }
+    .modal h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #6a0572;
+      font-size: 2.3em;
+    }
+    .modal p {
+      color: #333;
+      font-size: 1.1em;
+    }
+    @keyframes modalPop {
+      to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+    .cake-graphic {
+      width: 100px;
+      margin: 15px auto;
+      animation: bounce 1s infinite alternate ease-in-out;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+    .secret-btn {
+      margin-top: 20px;
+      padding: 10px 25px;
+      border: 2px dashed #ff4081;
+      background: transparent;
+      color: #6a0572;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: 0.3s ease;
+    }
+    .secret-btn:hover {
+      background: #ffe4f0;
+    }
+    .secret-chamber {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,240,250,0.95);
+      border: 4px dotted pink;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255,192,203,0.6);
+    }
+    .secret-chamber h3 {
+      color: #ff4081;
+      font-family: 'Great Vibes', cursive;
+      margin-bottom: 10px;
+    }
+    .username {
+      background: #fff0f5;
+      border: 2px solid #ff69b4;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px 0;
+      display: inline-block;
+      font-weight: bold;
+      color: #ff1493;
+      text-shadow: 0 0 5px #ff69b4;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #ff4081;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall 3s linear forwards;
+    }
+    @keyframes fall {
+      0% {transform: translateY(0); opacity: 1;}
+      100% {transform: translateY(100vh); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+
+<h1>Happy Birthday, Chachi! 🎉</h1>
+<img src="Chachi-Image.png" alt="Chachi cutting cake" class="chachi-img">
+<button class="cut-cake-btn" onclick="launchParty()">Cut the Cake 🎂</button>
+
+<div class="modal" id="birthdayModal">
+  <h2>🎉 Happy Birthday Chachi! 🎉</h2>
+  Aap jaisi sweet aur stylish Chachi sirf lucky logon ko milti hai!  
+  May this year bring chocolatey happiness, coffee moments,  
+  and endless smiles! 💖</p>
+  <button class="secret-btn" onclick="openSecret()">Reveal Secret Chamber 🎁</button>
+</div>
+
+<div class="secret-chamber" id="secretChamber">
+  <h3>💖 Secret Chamber 💖</h3>
+  <p class="username">Username: chachi-hbd@1404.anu</p>
+  <a href="Chachi-Birthday-Wish.pdf" download class="download-btn">Download Your Gift 🎁</a>
+</div>
+
+<script>
+function launchParty() {
+  for(let i=0; i<100; i++) {
+    let confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.top = Math.random() * 100 + 'vh';
+    confetti.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3000);
+  }
+  document.getElementById('birthdayModal').style.display = 'block';
+}
+
+function openSecret() {
+  document.getElementById('secretChamber').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
